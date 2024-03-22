@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Video Downloader</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Instagram Video Downloader</h1>
+        <input type="text" id="urlInput" placeholder="Enter Instagram Video URL">
+        <button onclick="downloadVideo()">Download</button>
+        <div id="downloadLink"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html><style>body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+input[type="text"] {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #2980b9;
+}</style><script>function downloadVideo() {
+    var url = document.getElementById("urlInput").value;
+    if (url.trim() === "") {
+        alert("Please enter a valid Instagram video URL.");
+        return;
+    }
+    
+    // Assuming you have a function to fetch the video URL
+    var videoUrl = getVideoUrl(url);
+
+    if (videoUrl) {
+        var downloadLink = document.getElementById("downloadLink");
+        downloadLink.innerHTML = '<a href="' + videoUrl + '" download>Download Video</a>';
+    } else {
+        alert("Failed to fetch video URL. Please try again later.");
+    }
+}
+
+function getVideoUrl(url) {
+    // Your code to extract the video URL from the Instagram page
+    // This could involve parsing the HTML or using Instagram API
+    // For demonstration purposes, we'll return a dummy video URL
+    return "https://www.example.com/example_video.mp4";
+}</script>
